@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+section{
+    padding-right: 3%;
+    padding-left: 3%;
+    padding-top: 20%;
+    padding-bottom: 4%;
+}
+
+.product{
+    background-color:white;
+    padding: 3%;
+}
+
+.product a{
+    margin-bottom: 20%;
+}
+
+article p{
+    font-size: 15px;
+}
+
+.product h4{
+    font-size: 350%;
+}
+
+.product h5{
+    font-size: 180%
+}
+
+.product button{
+    background-color: lightblue;
+    width: 100%;
+    font-size: 15px;
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
