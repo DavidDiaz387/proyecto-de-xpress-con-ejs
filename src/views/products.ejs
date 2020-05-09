@@ -1,46 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Font Awesome Stylesheet -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-	<!-- Bootstrap Grid Stylesheet -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="/stylesheets/app.css">
-	<!-- styles propios -->
-	<link rel="stylesheet" href="/stylesheets/estilosPropios.css">
-    <title></title>
+    <%- include('partials/styles.ejs')  %> 
+    <link rel="stylesheet" href="/stylesheets/app.css">
+    <title>Products</title>
 </head>
 <body>
-    <%- include('partials/header.ejs') %>
-	<section class="caja">
-		<div class="nameProduct">
-			<h1>Detalle del producto: <%=namePro%></h1>
-		</div>
-		<div class="product">
-			<a href="">
-			<figure class="">
-				<img src="/images/<%=imagenPro%>" alt="imagen de producto">
-			</figure>
-			<article class="">
-				<p><%=descriPro%> </p>
-			</article>
-			</a>
-				<h2><%= namePro %> </h2>
-				<h3><%= precioPro %><span> / 40% OFF</span> </h3>
-				<h4><%= precioPro %> </h4>
-				<h5>Paga en 10 cuotas sin interes</h5>
-				<h5>Retiro gratis en locales de vendedor</h5>
-					<form action="" method="post">
-						<button type="submit" value="vendido" name="productoElegido">Comprar ahora</button>
-					</form>
-		</div>
-	</section>
-				
-            
-<%- include('partials/footer.ejs') %> 
+    <%-include('partials/header.ejs')  %> 
+    <!--section-->
+    <section class="caja"></section>
+    <% arrayProducts.forEach(product => { %> 
+            <div class="nameProduct">
+                <h1><%=product.name%></h1>
+            </div>
+            <div class="product">
+                <div class="imagen">
+                    <a href="">
+                        <figure class="">
+                            <img src="/images/<%=product.image%>" alt="imagen de producto">
+                        </figure>
+                        <article class="">
+                            <p>descripcion</p>
+                        </article>
+                    </a>
+                </div>
+                <div class="info">
+                    <h3>precio real / con el descuento</h3>
+                    <h4>precio ya con descuento</h4>
+                </div>
+            </div>
+        
     
+    <% }); %> 
+</section>
+    <!--section-->
 </body>
 </html>

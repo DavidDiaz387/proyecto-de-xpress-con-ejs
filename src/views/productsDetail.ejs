@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<%- include('partials/styles.ejs')  %> 
+	<!-- Own Stylesheet -->
+	<link rel="stylesheet" href="/stylesheets/app.css">
+	<!-- styles propios -->
+	<link rel="stylesheet" href="/stylesheets/estilosPropios.css">
+    <title><%= namePro %> </title>
+</head>
+<body>
+    <%- include('partials/header.ejs') %>
+	<section class="caja">
+		<div class="nameProduct">
+			<h1>Detalle del producto: <%=namePro%></h1>
+		</div>
+		<div class="product">
+			<div class="imagen">
+				<a href="">
+					<figure class="">
+						<img src="/images/<%=imagenPro%>" alt="imagen de producto">
+					</figure>
+					<article class="">
+						<p><%=descriPro%> </p>
+					</article>
+				</a>
+			</div>
+			<div class="info">
+				<h2><%= namePro %> </h2>
+				<h3>$<%= precioPro %>/<%= descuPro %>% OFF  </h3>
+				<h4>$<%= preConDescu %></h4>
+				<div  class="cuotas">
+					<h5><i class="fas fa-credit-card"></i>Paga en 10 cuotas sin interes</h5>
+				</div>
+				<div class="retiro">
+					<h5><i class="fas fa-credit-card"></i>Retiro gratis en locales de vendedor</h5>
+				</div>
+				
+					<form action="" method="get">
+						<button type="submit" value="vendido" name="productoElegido">Comprar ahora</button>
+					</form>
+					<form action="/products/edit/<%= idPro %>" method="get">
+						<button type="submit">Modificar</button>
+					</form>
+					<form action="/products/delete/id?_method=delete" method="post">
+						<button type="submit" name="producto">Borrar</button>
+					</form>
+					
+			</div>
+		</div>
+	</section>
+				
+            
+<%- include('partials/footer.ejs') %> 
+    
+</body>
+</html>

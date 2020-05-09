@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Mercado Liebre Argentina</title>
-	<!-- Font Awesome Stylesheet -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-	<!-- Bootstrap Grid Stylesheet -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<%- include('partials/styles.ejs')  %> 
 	<!-- Own Stylesheet -->
 	<link rel="stylesheet" href="/stylesheets/app.css">
+	<title>Mercado Liebre Argentina</title>
 </head>
 <body>
 	<!-- Header -->
@@ -26,67 +21,25 @@
 			<div class="col-12">
 				<h2 class="products-title">Basado en tu última visita</h2>
 			</div>
+			<% arrayProducts.forEach(product => { %> 
+			<% if(product.category === "visited"){ %> 
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/product/detail/1">
+					<a href="/product/detail/<%=product.id%>">
 						<figure class="product-box_image">
-							<img src="/images/img-cafetera-moulinex.jpg" alt="imagen de producto">
+							<img src="/images/<%= product.image %> " alt="<%=product.name %> ">
 						</figure>
 						<article class="product-box_data">
-							<h2>$6.770</h2>
-							<span>40% OFF</span>
-							<p>Cafetera Moulinex Dolce Gusto Lorem ipsum, dolor sit amet.</p>
+							<h2>$<%= toThousand(product.price) %> </h2>
+							<span><%= product.discount %>% OFF</span>
+							<p><%= product.description %> </p>
 							<i class="fas fa-truck"></i>
 						</article>
 					</a>
 				</section>
 			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product/detail/2">
-						<figure class="product-box_image">
-							<img src="/images/img-macbook-pro-2019.jpg" alt="imagen de producto">
-						</figure>
-						<article class="product-box_data">
-							<h2>$150.970</h2>
-							<span>10% OFF</span>
-							<p>Macbook Pro 2019 Lorem ipsum, dolor sit amet.</p>
-							<i class="fas fa-truck"></i>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product/detail/3">
-						<figure class="product-box_image">
-							<img src="/images/img-tv-samsung-smart.jpg" alt="imagen de producto">
-						</figure>
-						<article class="product-box_data">
-							<h2>$54.230</h2>
-							<p>Televisor Samsung Smart TV Lorem ipsum, dolor sit amet.</p>
-							<i class="fas fa-truck"></i>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product/detail/4 ">
-						<figure class="product-box_image">
-							<img src="/images/img-samsung-galaxy-s10.jpg" alt="imagen de producto">
-						</figure>
-						<article class="product-box_data">
-							<h2>$89.410</h2>
-							<span>20% OFF</span>
-							<p>Samsung Galaxy s10 Lorem ipsum, dolor sit amet.</p>
-							<i class="fas fa-truck"></i>
-						</article>
-					</a>
-				</section>
-			</div>
-		</div>
-	</div>
+			 <% } %> 
+			<% });  %>	
 	<!-- /ultima visita -->
 
 	<!-- Ofertas -->
@@ -95,67 +48,26 @@
 			<div class="col-12">
 				<h2 class="products-title">Ofertas</h2>
 			</div>
+			<% arrayProducts.forEach(product =>{  %> 
+			<% if (product.category === "in-sale"){ %>  
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/product/detail/5">
+					<a href="/product/detail/<%=product.id%>">
 						<figure class="product-box_image">
-							<img src="/images/img-cafetera-moulinex.jpg" alt="imagen de producto">
+							<img src="/images/<%= product.image %> " alt="<%=product.name %> ">
 						</figure>
 						<article class="product-box_data">
-							<h2>$6.770</h2>
-							<span>40% OFF</span>
-							<p>Cafetera Moulinex Dolce Gusto Lorem ipsum, dolor sit amet.</p>
+							<h2>$<%= product.price %> </h2>
+							<span><%= product.discount %> % OFF</span>
+							<p><%= product.description %> </p>
 							<i class="fas fa-truck"></i>
 						</article>
 					</a>
 				</section>
 			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product/detail/6">
-						<figure class="product-box_image">
-							<img src="/images/img-macbook-pro-2019.jpg" alt="imagen de producto">
-						</figure>
-						<article class="product-box_data">
-							<h2>$150.970</h2>
-							<span>10% OFF</span>
-							<p>Macbook Pro 2019 Lorem ipsum, dolor sit amet.</p>
-							<i class="fas fa-truck"></i>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product/detail/7">
-						<figure class="product-box_image">
-							<img src="/images/img-tv-samsung-smart.jpg" alt="imagen de producto">
-						</figure>
-						<article class="product-box_data">
-							<h2>$54.230</h2>
-							<p>Televisor Samsung Smart TV Lorem ipsum, dolor sit amet.</p>
-							<i class="fas fa-truck"></i>
-						</article>
-					</a>
-				</section>
-			</div>
-			<div class="col-12 col-sm-6 col-lg-3">
-				<section class="product-box">
-					<a href="/product/detail/8">
-						<figure class="product-box_image">
-							<img src="/images/img-samsung-galaxy-s10.jpg" alt="imagen de producto">
-						</figure>
-						<article class="product-box_data">
-							<h2>$89.410</h2>
-							<span>20% OFF</span>
-							<p>Samsung Galaxy s10 Lorem ipsum, dolor sit amet.</p>
-							<i class="fas fa-truck"></i>
-						</article>
-					</a>
-				</section>
-			</div>
-		</div>
-	</div>
+			<% } %> 
+			<% });  %> 
+			
 	<!-- /Ofertas -->
 
 	<!-- footer -->

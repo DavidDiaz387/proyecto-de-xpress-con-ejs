@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Create</title>
+</head>
+<body>
+     
+    <section>
+        <div class="titul">
+            <h1>Crear producto</h1>
+        </div>
+        <div class="formu">
+            <form action="/products/create" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="name" id="nombre" placeholder="Nombre">
+                <label for="descripcion">Descripcion:</label>
+                <input type="text" name="description" id="descripcion" placeholder="Descripcion">
+                <label for="precio">Precio:</label>
+                <input type="text" name="price" id="precio" placeholder="Precio">
+                <label for="descuento">Descuento:</label>
+                <input type="text" name="discount" id="descuento" placeholder="Descuento">
+                <label for="categoria">Categoria:</label>
+                <input type="text" name="category" id="categoria" placeholder="Categoria">
+                <button type="submit">Crear Producto</button>
+            </form>
+        </div>
+    </section>
+    
+</body>
+</html>

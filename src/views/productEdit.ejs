@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('partials/styles.ejs')  %>
+    <link rel="stylesheet" href="/stylesheets/app.css">
+    <title>Product-Edit</title>
+</head>
+<body>
+    <!--header-->
+    <%-include('partials/header.ejs')  %> 
+    <!--header-->
+    <h1>Producto a editar N°:<%=produId %> </h1>
+    <form action="/products/edit?_method=put" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="name" id="nombre" placeholder="Nombre">
+        <label for="descripcion">Descripcion:</label>
+        <input type="text" name="description" id="descripcion" placeholder="Descripcion">
+        <label for="precio">Precio:</label>
+        <input type="text" name="price" id="precio" placeholder="Precio">
+        <label for="descuento">Descuento:</label>
+        <input type="text" name="discount" id="descuento" placeholder="Descuento">
+        <label for="imagen">Imagen:</label>
+        <input type="text" name="image" id="imagen" placeholder="Imagen">
+        <label for="categoria">Categoria:</label>
+        <input type="text" name="category" id="categoria" placeholder="Categoria">
+        <button type="submit">Modificar</button>
+    </form>
+</body>
+</html>
